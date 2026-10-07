@@ -1,160 +1,235 @@
-<!doctype html>
-<html lang="fr">
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JamSentinel | Détection et alerte de brouillage radio</title>
-  <meta name="description" content="JamSentinel détecte les anomalies et suspicions de brouillage radio à proximité et transforme les perturbations de communication en alertes exploitables.">
-  <meta name="robots" content="index, follow, max-image-preview:large">
-  <meta name="author" content="JamSentinel">
-  <meta name="theme-color" content="#080b0d">
-  <link rel="canonical" href="https://jamsentinel.com/">
-  <link rel="stylesheet" href="style.css">
-
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="fr_FR">
-  <meta property="og:site_name" content="JamSentinel">
-  <meta property="og:title" content="JamSentinel | Détection de brouillage radio">
-  <meta property="og:description" content="Détecter les anomalies radio. Qualifier les perturbations. Alerter rapidement.">
-  <meta property="og:url" content="https://jamsentinel.com/">
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="JamSentinel | Détection de brouillage radio">
-  <meta name="twitter:description" content="Une sentinelle pour surveiller les communications radio et détecter les anomalies à proximité.">
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "JamSentinel",
-    "url": "https://jamsentinel.com/",
-    "description": "Projet de détection et d'alerte face aux anomalies et suspicions de brouillage radio.",
-    "email": "contact@jamsentinel.com"
-  }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JamSentinel — Détection active de brouillage GSM</title>
+    <meta name="description" content="JamSentinel est la seule solution active de détection de brouillage qui alerte votre télésurveillance, même quand le réseau GSM a été rendu inopérant.">
+    <!-- Tailwind CSS CDN avec fallback CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            blue: '#0B2545',
+                            red: '#D90429',
+                            gray: '#134074',
+                            light: '#EEF4F8'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Compensation du header fixe pour le défilement des ancres */
+        section, [id] {
+            scroll-margin-top: 5rem;
+        }
+    </style>
 </head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
 
-<body>
-  <header class="site-header">
-    <nav class="nav container" aria-label="Navigation principale">
-      <a class="logo" href="/" aria-label="JamSentinel, accueil">JAM<span>SENTINEL</span></a>
-      <a class="nav-link" href="#contact">Le projet</a>
-    </nav>
-  </header>
+    <!-- HEADER / NAVIGATION -->
+    <header class="fixed top-0 left-0 w-full bg-white/95 backdrop-blur shadow-sm z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#accueil" class="flex items-center">
+                <img src="images/JS-LOGO.svg" alt="JamSentinel" class="h-10 sm:h-12 w-auto">
+            </a>
+            
+            <nav class="hidden md:flex space-x-8 font-medium text-gray-600">
+                <a href="#accueil" class="hover:text-brand-red transition-colors">Accueil</a>
+                <a href="#technologie" class="hover:text-brand-red transition-colors">Technologie</a>
+                <a href="#applications" class="hover:text-brand-red transition-colors">Applications</a>
+                <a href="#contact" class="hover:text-brand-red transition-colors">Contact</a>
+            </nav>
 
-  <main>
-    <section class="hero" aria-labelledby="hero-title">
-      <div class="hero-grid container">
-        <div class="hero-copy">
-          <p class="eyebrow">SURVEILLANCE RADIO · ALERTE LOCALE</p>
-          <h1 id="hero-title">Quand les ondes<br><strong>ne répondent plus.</strong></h1>
-          <p class="lead">
-            JamSentinel surveille les communications radio, détecte les anomalies
-            et vous alerte lorsqu'une suspicion de brouillage est identifiée à proximité.
-          </p>
-          <div class="actions">
-            <a class="button primary" href="#fonctionnement">Comment ça marche</a>
-            <a class="button ghost" href="#contact">Découvrir le projet</a>
-          </div>
         </div>
+    </header>
 
-        <div class="signal-card" aria-label="Illustration d'une surveillance radio active">
-          <div class="radar" aria-hidden="true">
-            <span class="ring ring-1"></span>
-            <span class="ring ring-2"></span>
-            <span class="ring ring-3"></span>
-            <span class="cross cross-x"></span>
-            <span class="cross cross-y"></span>
-            <span class="sweep"></span>
-            <span class="dot"></span>
-          </div>
-          <p class="status"><span></span>SURVEILLANCE ACTIVE</p>
-          <dl>
-            <div><dt>Signal radio</dt><dd>Surveillé</dd></div>
-            <div><dt>Zone</dt><dd>À proximité</dd></div>
-          </dl>
+    <!-- SECTION 1 : ACCUEIL / HERO -->
+    <section id="accueil" class="pt-32 pb-20 bg-gradient-to-b from-brand-light to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="inline-block px-3 py-1 bg-red-100 text-brand-red font-semibold text-sm rounded-full mb-4">Solution Brevetée & Fabriquée en France</span>
+                <h1 class="text-4xl sm:text-5xl font-black text-brand-blue leading-tight mb-6">
+                    On ne fera plus taire votre alarme.
+                </h1>
+                <p class="text-xl text-gray-600 mb-4 font-semibold">
+                    Ils brouillent votre alarme ? Nous le détectons. Nous vous alertons.
+                </p>
+                <p class="text-gray-600 mb-8 leading-relaxed">
+                    JamSentinel est la seule solution active de détection de brouillage qui alerte votre télésurveillance, même quand le réseau GSM a été rendu inopérant.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 mb-8">
+                    <a href="#technologie" class="px-6 py-3.5 rounded-lg font-bold text-brand-blue bg-white border border-gray-300 hover:bg-gray-50 text-center transition">
+                        En savoir plus
+                    </a>
+                </div>
+                <div class="grid grid-cols-3 gap-4 border-t pt-6 text-xs text-gray-500 font-medium">
+                    <div>✓ Tri-opérateur</div>
+                    <div>✓ Tri-confirmation</div>
+                    <div>✓ Prêt à l'emploi</div>
+                </div>
+            </div>
+            <div class="relative flex justify-center">
+                <img src="images/boitier-jamsentinel.png" alt="Boîtier JamSentinel" class="rounded-xl shadow-2xl border bg-white max-w-sm w-full object-cover">
+            </div>
         </div>
-      </div>
     </section>
 
-    <section class="statement container" aria-labelledby="probleme-title">
-      <p class="eyebrow">LE PROBLÈME</p>
-      <h2 id="probleme-title">Une perte de communication<br>n'est pas toujours une panne.</h2>
-      <p>
-        Une perturbation radio peut interrompre les échanges entre équipements
-        et rendre une situation difficile à diagnostiquer. JamSentinel transforme
-        les variations et pertes de communication observables en événements
-        exploitables pour faciliter la détection d'une anomalie radio.
-      </p>
+    <!-- SECTION COMPARATIVE -->
+    <section class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-brand-blue mb-12">Pourquoi équiper vos installations ?</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="p-8 rounded-2xl bg-red-50 border border-red-200">
+                    <div class="text-red-600 font-bold text-lg mb-2">SANS JamSentinel</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Incertitude & Vulnérabilité</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Les liaisons avec la télésurveillance sont coupées, mais vous ne le savez pas, ou vous avez un doute. Les cambrioleurs agissent en toute tranquillité.
+                    </p>
+                </div>
+                <div class="p-8 rounded-2xl bg-green-50 border border-green-200">
+                    <div class="text-green-700 font-bold text-lg mb-2">AVEC JamSentinel</div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-4">Détection du brouillage — Levée de doute</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Brouillage = Interruption des signaux de vie. La télésurveillance voit que les liaisons sont soudainement et simultanément coupées sur 3 opérateurs différents, et en connaît immédiatement la raison.
+                    </p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="fonctionnement" class="features container" aria-labelledby="fonctionnement-title">
-      <div class="section-heading">
-        <p class="eyebrow">FONCTIONNEMENT</p>
-        <h2 id="fonctionnement-title">Observer. Détecter. Alerter.</h2>
-      </div>
+    <!-- SECTION 2 : TECHNOLOGIE -->
+    <section id="technologie" class="py-20 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-brand-blue mb-4">Une technologie active sans contrainte</h2>
+                <p class="text-gray-600">Conçu et fabriqué en France, JamSentinel s'impose comme le complément naturel des centrales d'alarmes existantes.</p>
+            </div>
 
-      <div class="feature-grid">
-        <article class="feature">
-          <p class="number">01</p>
-          <h3>Observer</h3>
-          <p>Le dispositif surveille les communications radio et les indicateurs disponibles autour de l'installation.</p>
-        </article>
-        <article class="feature">
-          <p class="number">02</p>
-          <h3>Détecter</h3>
-          <p>Les événements inhabituels sont analysés afin d'identifier une suspicion de brouillage ou de perturbation.</p>
-        </article>
-        <article class="feature">
-          <p class="number">03</p>
-          <h3>Alerter</h3>
-          <p>Une anomalie détectée devient une alerte exploitable pour permettre une réaction rapide.</p>
-        </article>
-      </div>
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white p-6 rounded-xl shadow-sm border">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-brand-blue font-bold mb-4">01</div>
+                    <h3 class="font-bold text-lg mb-2">Surveillance Tri-Opérateur</h3>
+                    <p class="text-sm text-gray-600">Surveillance simultanée sur 3 opérateurs pour éliminer tout risque de zone d'ombre ou de fausse alerte.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-brand-blue font-bold mb-4">02</div>
+                    <h3 class="font-bold text-lg mb-2">Détection Ultra-Rapide</h3>
+                    <p class="text-sm text-gray-600">Détection et triple confirmation de l'attaque par brouillage en moins de 2 minutes.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow-sm border">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-brand-blue font-bold mb-4">03</div>
+                    <h3 class="font-bold text-lg mb-2">Zéro Intégration</h3>
+                    <p class="text-sm text-gray-600">Aucun logiciel à installer. Toutes les informations et alertes sont accessibles directement depuis votre navigateur Web.</p>
+                </div>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border shadow-sm text-center">
+                <h3 class="font-bold text-xl mb-6">Chaîne de détection et d'alerte</h3>
+                <img src="images/schema-fonctionnement.png" alt="Schéma de fonctionnement JamSentinel" class="mx-auto max-w-full h-auto">
+            </div>
+        </div>
     </section>
 
-    <section class="usecases container" aria-labelledby="usecases-title">
-      <div>
-        <p class="eyebrow">JAMSENTINEL</p>
-        <h2 id="usecases-title">Une sentinelle pour les communications critiques.</h2>
-        <p class="muted">
-          Une approche conçue pour ajouter une couche de surveillance indépendante
-          aux équipements connectés qui dépendent des communications radio.
-        </p>
-      </div>
+    <!-- SECTION 3 : APPLICATIONS -->
+    <section id="applications" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold text-center text-brand-blue mb-4">Protégez vos clients sensibles</h2>
+            <p class="text-center text-gray-600 mb-12">JamSentinel est conçu pour sécuriser les sites à haut risque face aux attaques radio.</p>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-10 gap-6">
+                <!-- Agences Bancaires -->
+                <div class="p-6 border rounded-xl lg:col-span-2 text-center font-medium hover:border-brand-red transition shadow-sm hover:shadow-md bg-white flex flex-col items-center justify-center space-y-3">
+                    <img src="images/Agences Bancaires.svg" alt="Agences Bancaires" class="w-12 h-12 object-contain">
+                    <span class="text-brand-blue">Agences Bancaires</span>
+                </div>
 
-      <div class="usecase-list">
-        <article>
-          <span aria-hidden="true">◉</span>
-          <div><h3>Détection locale</h3><p>Identifier une anomalie radio autour d'une installation.</p></div>
-        </article>
-        <article>
-          <span aria-hidden="true">↯</span>
-          <div><h3>Alerte rapide</h3><p>Transformer un événement radio en signal d'alerte exploitable.</p></div>
-        </article>
-        <article>
-          <span aria-hidden="true">+</span>
-          <div><h3>Surveillance continue</h3><p>Observer les communications sans dépendre uniquement du fonctionnement applicatif.</p></div>
-        </article>
-      </div>
+                <!-- Bijouteries & Luxe -->
+                <div class="p-6 border rounded-xl lg:col-span-2 text-center font-medium hover:border-brand-red transition shadow-sm hover:shadow-md bg-white flex flex-col items-center justify-center space-y-3">
+                    <img src="images/Bijouteries Luxe.svg" alt="Bijouteries Luxe" class="w-12 h-12 object-contain">
+                    <span class="text-brand-blue">Bijouteries & Luxe</span>
+                </div>
+
+                <!-- Pharmacies -->
+                <div class="p-6 border rounded-xl lg:col-span-2 text-center font-medium hover:border-brand-red transition shadow-sm hover:shadow-md bg-white flex flex-col items-center justify-center space-y-3">
+                    <img src="images/Pharmacies.svg" alt="Pharmacies" class="w-12 h-12 object-contain">
+                    <span class="text-brand-blue">Pharmacies</span>
+                </div>
+
+                <!-- Résidences de Luxe -->
+                <div class="p-6 border rounded-xl lg:col-span-2 text-center font-medium hover:border-brand-red transition shadow-sm hover:shadow-md bg-white flex flex-col items-center justify-center space-y-3">
+                    <img src="images/Résidences.svg" alt="Résidences" class="w-12 h-12 object-contain">
+                    <span class="text-brand-blue">Résidences de Luxe</span>
+                </div>
+
+                <!-- Industries -->
+                <div class="p-6 border rounded-xl lg:col-span-2 text-center font-medium hover:border-brand-red transition shadow-sm hover:shadow-md bg-white flex flex-col items-center justify-center space-y-3">
+                    <img src="images/Industries.svg" alt="Industries" class="w-12 h-12 object-contain">
+                    <span class="text-brand-blue">Industries</span>
+                </div>
+
+                <!-- Concessions Automobiles -->
+                <div class="p-6 border rounded-xl lg:col-span-2 lg:col-start-2 text-center font-medium hover:border-brand-red transition shadow-sm hover:shadow-md bg-white flex flex-col items-center justify-center space-y-3">
+                    <img src="images/Concessions Automobiles.svg" alt="Concessions Automobiles" class="w-12 h-12 object-contain">
+                    <span class="text-brand-blue">Concessions Automobiles</span>
+                </div>
+
+                <!-- Distribution & Logistique -->
+                <div class="p-6 border rounded-xl lg:col-span-2 text-center font-medium hover:border-brand-red transition shadow-sm hover:shadow-md bg-white flex flex-col items-center justify-center space-y-3">
+                    <img src="images/Entrepôts Logistiques.svg" alt="Entrepôts Logistiques" class="w-12 h-12 object-contain">
+                    <span class="text-brand-blue">Distribution & Logistique</span>
+                </div>
+
+                <!-- Musées & Culture -->
+                <div class="p-6 border rounded-xl lg:col-span-2 text-center font-medium hover:border-brand-red transition shadow-sm hover:shadow-md bg-white flex flex-col items-center justify-center space-y-3">
+                    <img src="images/Musées et Centres Culturels.svg" alt="Musées et Centres Culturels" class="w-12 h-12 object-contain">
+                    <span class="text-brand-blue">Musées & Culture</span>
+                </div>
+
+                <!-- Sites Pétroliers -->
+                <div class="p-6 border rounded-xl lg:col-span-2 text-center font-medium hover:border-brand-red transition shadow-sm hover:shadow-md bg-white flex flex-col items-center justify-center space-y-3">
+                    <img src="images/Distribution Pétrolière.svg" alt="Distribution Pétrolière" class="w-12 h-12 object-contain">
+                    <span class="text-brand-blue">Sites Pétroliers</span>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section id="contact" class="contact container" aria-labelledby="contact-title">
-      <p class="eyebrow">PROJET EN DÉVELOPPEMENT</p>
-      <h2 id="contact-title">La détection commence<br>par savoir écouter.</h2>
-      <p>
-        JamSentinel est actuellement en développement autour de la détection,
-        de la qualification et de l'alerte des perturbations radio.
-      </p>
-      <a class="button primary" href="mailto:contact@jamsentinel.com">Nous contacter</a>
-    </section>
-  </main>
+    <!-- SECTION 4 : CONTACT & DÉMO -->
+    <section id="contact" class="py-20 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12">
+            <div>
+                <h2 class="text-3xl font-bold text-brand-blue mb-4">Contactez-nous</h2>
+                <p class="text-gray-600 mb-8">Une question technique ou une demande de démonstration ? Notre équipe est à votre disposition.</p>
+                
+                <div class="space-y-6 text-gray-700">
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 rounded-lg bg-white border flex items-center justify-center text-brand-red font-bold shadow-sm">🌐</div>
+                        <div>
+                            <span class="block text-xs uppercase font-semibold text-gray-500">Site Web</span>
+                            <a href="https://www.jamsentinel.com" target="_blank" rel="noopener noreferrer" class="font-medium text-brand-blue hover:text-brand-red transition">www.jamsentinel.com</a>
+                        </div>
+                    </div>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <a class="logo" href="/" aria-label="JamSentinel, accueil">JAM<span>SENTINEL</span></a>
-      <p>© 2026 JamSentinel · Détection de brouillage radio</p>
-    </div>
-  </footer>
-</body>
-</html>
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 rounded-lg bg-white border flex items-center justify-center text-brand-red font-bold shadow-sm">✉️</div>
+                        <div>
+                            <span class="block text-xs uppercase font-semibold text-gray-500">E-mail</span>
+                            <a href="mailto:s.canet@jamsentinel.com" class="font-medium text-brand-blue hover:text-brand-red transition">s.canet@jamsentinel.com</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-4">
+                        <div class="w-10 h-10 rounded-lg bg-white border flex items-center justify-center text-brand-red font-bold shadow-sm">📞</div>
+                        <div>
+                            <span class="block text-xs uppercase font-semibold text-gray-500">Téléphone</span>
+                            <a href="tel:+33613612676" class="font-medium text-brand-blue hover:text-brand-red transition">+33 (0)6 13 61 26 76</a>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-

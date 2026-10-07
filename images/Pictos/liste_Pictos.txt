@@ -1,0 +1,10 @@
+Agences Bancaires.svg
+Bijouteries Luxe.svg
+Concessions Automobiles.svg
+Distribution Pétrolière.svg
+Entrepôts Logistiques.svg
+Industries.svg
+liste_Pictos.txt
+Musées et Centres Culturels.svg
+Pharmacies.svg
+Résidences.svg
